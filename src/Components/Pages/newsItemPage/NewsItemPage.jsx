@@ -2,10 +2,11 @@ import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import useFetch from "../../../hooks/useFetch";
 import "./newsItemPage.css"; 
+import API_URL from "../../../config/API";
 
 const NewsItemPage = () => {
   const { id } = useParams(); // Get the news ID from the URL
-  const { data: news, loading, error } = useFetch(`http://localhost:8000/api/news/${id}`);
+  const { data: news, loading, error } = useFetch(`${API_URL}/api/news/${id}`);
 
   if (loading) {
     return <div className="loading-indicator">Loading news...</div>;

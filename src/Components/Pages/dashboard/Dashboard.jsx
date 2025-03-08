@@ -6,12 +6,13 @@ import "swiper/css/navigation";
 import "swiper/css/pagination";
 import "./dashboard.css";
 import useFetch from "../../../hooks/useFetch";
-import { Link, useNavigate } from "react-router-dom"; // Import useNavigate for navigation
+import { Link, useNavigate } from "react-router-dom";
+import API_URL from "../../../config/API";
 
 const Dashboard = () => {
-  const { data: matches, loading: matchesLoading, error: matchesError } = useFetch("http://localhost:8000/api/matches?limit=6");
-  const { data: clubs } = useFetch("http://localhost:8000/api/clubs");
-  const { data: news, loading: newsLoading, error: newsError } = useFetch("http://localhost:8000/api/news");
+  const { data: matches, loading: matchesLoading, error: matchesError } = useFetch(`${API_URL}/api/matches?limit=6`);
+  const { data: clubs } = useFetch(`${API_URL}/api/clubs`);
+  const { data: news, loading: newsLoading, error: newsError } = useFetch(`${API_URL}/api/news`);
   const navigate = useNavigate(); // Hook for navigation
 
   const getClubNameById = (id) => {
