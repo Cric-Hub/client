@@ -2,9 +2,10 @@ import React, { useState } from "react";
 import { useNavigate } from "react-router-dom"; // Import useNavigate
 import useFetch from "../../../hooks/useFetch";
 import "./news.css";
+import API_URL from "../../../config/API";
 
 const News = () => {
-  const { data, loading, error } = useFetch("http://localhost:8000/api/news");
+  const { data, loading, error } = useFetch(`${API_URL}/api/news`);
   const [currentPage, setCurrentPage] = useState(1);
   const itemsPerPage = 6;
   const navigate = useNavigate(); // Initialize useNavigate

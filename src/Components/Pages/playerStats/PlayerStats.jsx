@@ -4,6 +4,7 @@ import useFetch from "../../../hooks/useFetch";
 import "./playerStats.css"; 
 import { useLocation } from "react-router-dom";
 import axios from "axios";
+import API_URL from "../../../config/API";
 
 const PlayerStats = () => {
   const location = useLocation();
@@ -15,7 +16,7 @@ const PlayerStats = () => {
   useEffect(() => {
     const fetchPlayer = async () => {
       try {
-        const res = await axios.get(`http://localhost:8000/api/players/${id}`);
+        const res = await axios.get(`${API_URL}/api/players/${id}`);
         setPlayer(res.data); 
         setLoading(false);
       } catch (err) {
