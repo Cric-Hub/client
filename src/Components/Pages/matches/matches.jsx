@@ -59,8 +59,8 @@ const Matches = () => {
                   <div className="team">
                     <div className="team-info">
                       <img
-                        src={currentClubFlag}
-                        alt={`${currentClubName} flag`}
+                        src={opponentClubFlag}
+                        alt={`${opponentClubName} flag`}
                         className="team-flag"
                       />
                       <p>{opponentClubName}</p>
