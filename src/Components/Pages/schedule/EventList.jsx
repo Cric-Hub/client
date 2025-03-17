@@ -1,19 +1,19 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
-import './EventList.css'; // Import the CSS file
+import './EventList.css';
 
 const EventList = () => {
   const [events, setEvents] = useState([]);
-  const [loading, setLoading] = useState(false); // For loading state
+  const [loading, setLoading] = useState(false); // For loading
 
   const fetchEvents = async () => {
-    const calendarId = 'nilushkapoornima@gmail.com'; // Replace with your Calendar ID (not a URL)
-    const apiKey = 'AIzaSyDtxXWJTcweO4rvwZZxhM6B4B_1NKjb-I0'; // Replace with your API Key
+    const calendarId = 'nilushkapoornima@gmail.com';
+    const apiKey = 'AIzaSyDtxXWJTcweO4rvwZZxhM6B4B_1NKjb-I0';
 
     // Get yesterday's date in ISO format
     const yesterday = new Date();
     yesterday.setDate(yesterday.getDate() - 1);
-    const timeMin = yesterday.toISOString(); // Time from yesterday
+    const timeMin = yesterday.toISOString();
 
     setLoading(true); // Start loading
 
@@ -46,7 +46,7 @@ const EventList = () => {
   };
 
   useEffect(() => {
-    fetchEvents(); // Fetch events when component mounts
+    fetchEvents();
   }, []);
 
   return (

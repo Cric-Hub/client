@@ -5,15 +5,15 @@ const SmoothScroll = ({ children }) => {
   useEffect(() => {
     // Initialize Lenis for smooth scrolling
     const lenis = new Lenis({
-      duration: 1.2, // Duration of the scroll animation
-      easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)), // Easing function
-      smooth: true, // Enable smooth scrolling
+      duration: 1.2,
+      easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
+      smooth: true,
     });
 
     // RAF function to update Lenis on each frame
     function raf(time) {
-      lenis.raf(time); // Update Lenis
-      requestAnimationFrame(raf); // Request the next frame
+      lenis.raf(time); 
+      requestAnimationFrame(raf);
     }
 
     requestAnimationFrame(raf); // Start the animation loop

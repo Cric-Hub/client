@@ -31,7 +31,8 @@ const Matches = () => {
                     <div className="team-info">
                       <img
                         src={currentClub.club.image}
-                        alt={`${currentClub.club.name} flag`}                        className="team-flag"
+                        alt={`${currentClub.club.name} flag`}                        
+                        className="team-flag"
                       />
                       <p className="team-name">{currentClub.club.name}</p>
                     </div>

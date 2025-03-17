@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { useNavigate } from "react-router-dom"; // For navigation
+import { useNavigate } from "react-router-dom";
 import useFetch from "../../../hooks/useFetch";
 import "./leaderboard.css";
 
@@ -107,7 +107,7 @@ const Leaderboard = () => {
               <div className="player-club">
                 <span
                   className="player-name"
-                  onClick={() => handlePlayerClick(player._id)} // Make name clickable
+                  onClick={() => handlePlayerClick(player._id)}
                   style={{ cursor: "pointer", textDecoration: "underline" }}
                 >
                   {player.name}

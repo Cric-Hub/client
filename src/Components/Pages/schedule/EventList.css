@@ -17,8 +17,8 @@
 
 /* Styling for the scrollable list */
 .scrollable-list {
-  max-height: 400px; /* Set the max height for scrolling */
-  overflow-y: auto; /* Enable vertical scrolling */
+  max-height: 400px;
+  overflow-y: auto;
   border: 1px solid #ddd;
   border-radius: 8px;
   background-color: #fff;

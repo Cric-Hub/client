@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import "./navbar.css";
 import logo from "../Assets/Cricketer logo.png";
 import { Link } from "react-router-dom";
-import { FaBars, FaTimes } from "react-icons/fa"; // Import icons for the hamburger menu
+import { FaBars, FaTimes } from "react-icons/fa";
 
 const Navbar = () => {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);

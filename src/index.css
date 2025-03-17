@@ -10,8 +10,6 @@ code {
   font-family: monospace;
 }
 
-/* Custom Scrollbar Styles */
-/* For WebKit browsers (Chrome, Safari, Edge) */
 ::-webkit-scrollbar {
   width: 12px; 
 }
