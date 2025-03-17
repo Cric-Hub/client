@@ -11,19 +11,8 @@ import API_URL from "../../../config/API";
 
 const Dashboard = () => {
   const { data: matches, loading: matchesLoading, error: matchesError } = useFetch(`${API_URL}/api/matches?limit=6`);
-  const { data: clubs } = useFetch(`${API_URL}/api/clubs`);
   const { data: news, loading: newsLoading, error: newsError } = useFetch(`${API_URL}/api/news`);
   const navigate = useNavigate(); // Hook for navigation
-
-  const getClubNameById = (id) => {
-    const club = clubs?.find((club) => club._id === id);
-    return club ? club.name : "";
-  };
-
-  const getFlagByClubId = (id) => {
-    const club = clubs?.find((club) => club._id === id);
-    return club ? club.image : "";
-  };
 
   // Sort news by publishedDate (newest first)
   const sortedNews = news ? [...news].sort((a, b) => new Date(b.publishedDate) - new Date(a.publishedDate)) : [];
@@ -67,11 +56,11 @@ const Dashboard = () => {
               const currentClub = match.currentInnings === "club1" ? match.club1 : match.club2;
               const opponentClub = match.currentInnings === "club1" ? match.club2 : match.club1;
 
-              const currentClubName = getClubNameById(currentClub.club);
-              const opponentClubName = getClubNameById(opponentClub.club);
+              const currentClubName = (currentClub.club.name);
+              const opponentClubName = (opponentClub.club.name);
 
-              const currentClubFlag = getFlagByClubId(currentClub.club);
-              const opponentClubFlag = getFlagByClubId(opponentClub.club);
+              const currentClubFlag = (currentClub.club.image);
+              const opponentClubFlag = (opponentClub.club.image);
 
               const target = currentClub.score + 1;
 
@@ -110,7 +99,7 @@ const Dashboard = () => {
                     </div>
                   </div>
                   <div className="match-footer">
-                    <p>{`${getClubNameById(match.tossWinner)} chose to ${match.tossChoice.toLowerCase()}`}</p>
+                    <p>{`${(match.tossWinner)} chose to ${match.tossChoice.toLowerCase()}`}</p>
                     {match.currentInnings === "club2" && <p>{`Target: ${target}`}</p>}
                   </div>
                 </SwiperSlide>
