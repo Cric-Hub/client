@@ -5,17 +5,6 @@ import API_URL from "../../../config/API";
 
 const Matches = () => {
   const { data: matches, loading, error } = useFetch(`${API_URL}/api/matches`);
-  const { data: clubs } = useFetch(`${API_URL}/api/clubs`);
-
-  const getClubNameById = (id) => {
-    const club = clubs?.find((club) => club._id === id);
-    return club ? club.name : "";
-  };
-
-  const getFlagByClubId = (id) => {
-    const club = clubs?.find((club) => club._id === id);
-    return club ? club.image : "";
-  };
 
   return (
     <div className="matches-container">
@@ -30,12 +19,6 @@ const Matches = () => {
             const currentClub = match.currentInnings === "club1" ? match.club1 : match.club2;
             const opponentClub = match.currentInnings === "club1" ? match.club2 : match.club1;
 
-            const currentClubName = getClubNameById(currentClub.club);
-            const opponentClubName = getClubNameById(opponentClub.club);
-
-            const currentClubFlag = getFlagByClubId(currentClub.club);
-            const opponentClubFlag = getFlagByClubId(opponentClub.club);
-
             const target = currentClub.score + 1;
 
             return (
@@ -47,11 +30,10 @@ const Matches = () => {
                   <div className="team">
                     <div className="team-info">
                       <img
-                        src={currentClubFlag}
-                        alt={`${currentClubName} flag`}
-                        className="team-flag"
+                        src={currentClub.club.image}
+                        alt={`${currentClub.club.name} flag`}                        className="team-flag"
                       />
-                      <p className="team-name">{currentClubName}</p>
+                      <p className="team-name">{currentClub.club.name}</p>
                     </div>
                     <p className="team-stats">{`${currentClub.score}/${currentClub.wickets} (${currentClub.overs})`}</p>
                   </div>
@@ -59,17 +41,17 @@ const Matches = () => {
                   <div className="team">
                     <div className="team-info">
                       <img
-                        src={opponentClubFlag}
-                        alt={`${opponentClubName} flag`}
+                        src={opponentClub.club.image}
+                        alt={`${opponentClub.club.name} flag`}
                         className="team-flag"
                       />
-                      <p>{opponentClubName}</p>
+                      <p>{opponentClub.club.name}</p>
                     </div>
                     <p>{match.currentInnings === "club1" ? "Yet to bat" : `${opponentClub.score}/${opponentClub.wickets}`}</p>
                   </div>
                 </div>
                 <div className="match-footer">
-                  <p>{`${getClubNameById(match.tossWinner)} chose to ${match.tossChoice.toLowerCase()}`}</p>
+                  <p>{`${match.tossWinner.name} chose to ${match.tossChoice.toLowerCase()}`}</p>
                   {match.currentInnings === "club2" && (
                     <p>{`Target: ${target}`}</p>
                   )}
