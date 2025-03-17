@@ -10,8 +10,8 @@ const BlurBackground = () => {
   });
 
   useEffect(() => {
-    const radius = 650; // Define the movement boundary
-    const speed = 0.005; // Speed factor for smoothness
+    const radius = 650;
+    const speed = 0.005;
 
     const directions = {
       large: { x: Math.random(), y: Math.random() },

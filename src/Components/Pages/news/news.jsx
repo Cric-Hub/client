@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { useNavigate } from "react-router-dom"; // Import useNavigate
+import { useNavigate } from "react-router-dom"; 
 import useFetch from "../../../hooks/useFetch";
 import "./news.css";
 import API_URL from "../../../config/API";
@@ -48,7 +48,7 @@ const News = () => {
 
   // Navigate to NewsItem page
   const handleNewsClick = (id) => {
-    navigate(`/news/${id}`); // Navigate to the news item page
+    navigate(`/news/${id}`); 
   };
 
   return (

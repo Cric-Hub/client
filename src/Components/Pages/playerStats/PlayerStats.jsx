@@ -1,6 +1,4 @@
 import React, { useEffect, useState } from "react";
-import { useParams } from "react-router-dom";
-import useFetch from "../../../hooks/useFetch";
 import "./playerStats.css"; 
 import { useLocation } from "react-router-dom";
 import axios from "axios";
