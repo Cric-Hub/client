@@ -5,9 +5,7 @@ import "./leaderboard.css";
 
 const Leaderboard = () => {
   const [filter, setFilter] = useState("bowling");
-  const { data: clubs, loading: clubsLoading, error: clubsError } = useFetch(
-    "http://localhost:8000/api/clubs"
-  );
+
   const { data: players, loading: playerLoading, error: playerError } = useFetch(
     "http://localhost:8000/api/players"
   );
@@ -47,11 +45,6 @@ const Leaderboard = () => {
     if (currentPage > 1) {
       setCurrentPage(currentPage - 1);
     }
-  };
-
-  const getClubNameById = (id) => {
-    const club = clubs?.find((club) => club._id === id);
-    return club ? club.name : "";
   };
 
   const handlePlayerClick = (playerId) => {
@@ -120,7 +113,7 @@ const Leaderboard = () => {
                   {player.name}
                 </span>
                 <span className="club-name">
-                  {getClubNameById(player.club) || "Player not in Club"}
+                  {(player.club.name) || "Player not in Club"}
                 </span>
               </div>
 
